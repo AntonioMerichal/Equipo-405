@@ -1,0 +1,16 @@
+i22papaj,555,Pedro Martinez,DIRECTOR_ACADEMICO
+laura,789,Laura Garcia,ORGANIZADOR
+diego,321,Diego Hernandez,USUARIO
+clara,987,Clara Rodriguez,DIRECTOR_ACADEMICO
+julia,654,Julia Soto,USUARIO
+roberto,123,Roberto Vargas,ORGANIZADOR
+elena,876,Elena Ramirez,USUARIO
+sergio,234,Sergio Torres,DIRECTOR_ACADEMICO
+lucia,567,Lucia Mendoza,USUARIO
+carla,432,Carla Morales,ORGANIZADOR
+angel,1234,angel angel angel,USUARIO
+usuario492,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario5017,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario9077,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario2336,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario9047,1111prueba,Nombre de prueba,ORGANIZADOR

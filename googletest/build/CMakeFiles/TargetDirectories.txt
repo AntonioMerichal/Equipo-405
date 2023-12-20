@@ -1,0 +1,4 @@
+/home/alfonso0311/Downloads/proyectoIS/proyectoIS/googletest/build/CMakeFiles/gtest.dir
+/home/alfonso0311/Downloads/proyectoIS/proyectoIS/googletest/build/CMakeFiles/gtest_main.dir
+/home/alfonso0311/Downloads/proyectoIS/proyectoIS/googletest/build/CMakeFiles/edit_cache.dir
+/home/alfonso0311/Downloads/proyectoIS/proyectoIS/googletest/build/CMakeFiles/rebuild_cache.dir

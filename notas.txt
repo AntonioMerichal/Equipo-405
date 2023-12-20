@@ -1,0 +1,8 @@
+Usuario (usuarioUCO, nombre, rol)
+GestorUsuarios (lista de usuarios)
+
+Actividad (identificador, nombre, descripción)
+GestorActividades (lista de actividades)
+
+Inscripcion (usuarioUCO,identificador,fechaInscripcion, estado)
+InscripcionesACtividad (lista con las inscripciones, idActividad)
