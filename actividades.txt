@@ -1,4 +1,5 @@
-1,Diseño de un Puente,Proyecto de ingeniería civil para diseñar un puente resistente y eficiente,2023-01-10,2023-02-15
-2,Desarrollo de un Software de Simulación,Creación de un software de simulación para análisis de sistemas complejos,2023-03-01,2023-03-30
-3,Investigación en Energías Renovables,Estudio de fuentes de energía renovable para mejorar la sostenibilidad,2023-04-05,2023-05-10
-4,Construcción de una Planta de Tratamiento de Agua,Proyecto de ingeniería ambiental para construir una planta de tratamiento de agua,2024-06-01,2024-07-15
+1,IA,Descripcion de modelos que buscan crear sistemas que imiten la inteligencia humana,2023-01-10,2023-02-15
+2,Programación,Creación de software mediante la escritura de código,2023-03-01,2023-03-30
+3,Ciberseguridad,Protección de sistemas informáticos contra amenazas y ataques digitales,2023-04-05,2023-05-10
+4,Redes,Establecimiento y mantenimiento de conexiones de comunicación entre dispositivos,2024-06-01,2024-07-15
+5,BigData,Análisis de grandes volúmenes de datos para obtener información,2023-06-01,2023-07-15

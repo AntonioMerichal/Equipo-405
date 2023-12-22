@@ -8,7 +8,11 @@
 #include <iomanip>
 #include "gestor_inscripcion.h"
 using namespace std;
+#define ANSI_COLOR_GREEN "\033[32m"
+#define ANSI_COLOR_RESET "\033[0m"
 
+#define RESET_COLOR "\033[0m"
+#define BRIGHT_YELLOW "\033[1;33m"
 int main(int argc, char **argv)
 {
     if (argc != 4)
@@ -21,6 +25,7 @@ int main(int argc, char **argv)
     string nombreFicheroUsuarios(argv[1]);
     string nombreFicheroActividades(argv[2]);
     string nombreFicheroInscritos(argv[3]);
+    int idCurso;
 
     GestorUsuario usuarios(nombreFicheroUsuarios);
 
@@ -76,6 +81,7 @@ int main(int argc, char **argv)
             else
             {
                 cout << "Error login!" << endl;
+                cout << "\n" << endl;
             }
             break;
 
@@ -148,8 +154,10 @@ int main(int argc, char **argv)
 
     else if(rol_usuario_logueado == "USUARIO")
     {
-        cout << "****************************" << endl;
-        cout << "SE MOSTRARAN LAS ACTIVIDADES DISPONIBLES EN LA FECHA ACTUAL" << endl;
+        cout << "\n" ;
+        cout << ANSI_COLOR_GREEN << "================= BIENVENIDO A IDEED : " << usuario << "================= " << ANSI_COLOR_RESET << endl;
+        cout << "\n";
+        cout << "ACTIVIDADES DISPONIBLES EN LA FECHA ACTUAL: " << endl;
         actividad.mostrarActividadesActuales(fechaActual);
         do
         {
@@ -157,27 +165,26 @@ int main(int argc, char **argv)
 
             switch (opcion)
             {
-            case 0:
-                cout << "Saliendo..." << endl;
+                case 1:
+                cout << "Introduce el ID de la actividad a la que desea inscribirse: ";
+                cin >> idCurso;
+                inscripcion.nuevaInscripcion(Inscripcion(usuario,idCurso));
+                fechaInicio = actividad.obtenerFechaInicio(idCurso);
+                inscripcion.modificarFechaInicioCurso(usuario,idCurso,fechaInicio);
+                cout << "te has inscrito" << endl;
                 break;
-
-            case 1:
-                 actividad.elegirActividad();
-                cout << "HAS SELECIONADO LA ACTIVIDAD CORRECTAMENTE. AHORA DEBES MATRICULARTE (PASO 2)" << endl;
-                
-                
-                break;
-
             case 2:
-            
-            inscripcion.getListaInscritos();
-            cout << "REALIZANDO LA MATRICULACIÓN DE LA ACTIVIDAD..." << endl;
-                inscripcion.nuevaInscripcion(Inueva);
-                inscripciones_actividad();
-                cout<< "te has matriculado" << endl;
-                break;
-            case 3:
-                inscripcion.darDeBajaUsuario(usuario,id);
+            cout << "Te vas a dar de baja de la actividad. Introduce tu usuario y el id de la actividad" << endl;
+            cin >> usuario;
+            cin>> id;
+               if (inscripcion.darDeBajaUsuario(usuario,id)==true)
+               {
+                    cout<< "Te has dado de baja con éxito de la actividad"<<endl;
+               }
+               else
+               {
+                    cout<< "Has introducido valores incorrectos" << endl;
+               }
                 break;
             }
 
@@ -185,26 +192,52 @@ int main(int argc, char **argv)
     }
     else if(rol_usuario_logueado == "DIRECTOR_ACADEMICO")
     {
+        cout << "\n" ;
+        cout << BRIGHT_YELLOW << "================= BIENVENIDO A IDEED : " << usuario << "================= " << RESET_COLOR << endl;
+        cout << "\n";
         do
         {
-            opcion = 0;
+                    opcion = menuDirector();
 
-            switch (opcion)
-            {
-            case 0:
-                cout << "Saliendo..." << endl;
-                break;
+                    switch (opcion)
+                    {
+                    case 0:
+                        cout << "Saliendo..." << endl;
+                        break;
 
-            case 1:
+                    case 1:
+                        cout << "Introduce el ID de la actividad a la que desea inscribirse: ";
+                        cin >> idCurso;
+                        inscripcion.nuevaInscripcion(Inscripcion(usuario,idCurso));
+                        fechaInicio = actividad.obtenerFechaInicio(idCurso);
+                        inscripcion.modificarFechaInicioCurso(usuario,idCurso,fechaInicio);
+                        cout << "te has inscrito" << endl;               
+                        break;
 
-                break;
+                    case 2:
+                        cout << "Vas a dar de baja al usuario que introduzcas. Introduce su usuario, seguido de 'enter' y a continuación el id de la actividad, seguido de 'enter'" << endl;
+                            cin >> usuario;
+                            cin>> id;
+                        if (inscripcion.darDeBajaUsuario(usuario,id)==true)
+                        {
+                            cout<< "Te has dado de baja con éxito de la actividad"<<endl;
+                        }
+                        else
+                        {
+                            cout<< "Has introducido valores incorrectos" << endl;
+                        }               
+                        break;
+                    case 3:
+                        cout<<"La lista de actividades que se van a realizar es la siguiente: "<<endl;
+                        actividad.mostrarActividades();                
+                        break;
+                    case 4:
+                        cout<<"La lista de inscritos es la siguiente: "<<endl;
+                        inscripcion.mostrarInscripciones();              
+                        break;
+                    }
+            } while (opcion != 0);
 
-            case 2:
-                break;
-            }
-
-        } while (opcion != 0);
     }
-
 
 }

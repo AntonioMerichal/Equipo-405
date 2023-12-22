@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread -std=gnu++11
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = test1
+TESTS = test1 test2 test3
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -50,6 +50,7 @@ clean :
 c : clean all
 	./test1
 	./test2
+	./test3
 
 # Builds gtest.a and gtest_main.a.
 
@@ -80,9 +81,28 @@ gtest_main.a : gtest-all.o gtest_main.o
 # function.
 
 #TEST 1
-test1 : test1.cc gtest_main.a
+gestor_usuarios.o : gestor_usuarios.h gestor_usuarios.cc
+
+test1.o : test1.cc gestor_usuarios.h gestor_usuarios.cc
+
+test1 : test1.o gestor_usuarios.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
 #TEST 2
-test2 : test2.cc gtest_main.a
+
+gestor_actividad.o : gestor_actividad.h gestor_actividad.cc
+
+test2.o : test2.cc gestor_actividad.h gestor_actividad.cc
+
+test2 : test2.o gestor_actividad.o gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
+
+#TEST 3
+
+gestor_inscripcion.o: gestor_inscripcion.h gestor_inscripcion.cc
+
+test3.o : test3.cc gestor_inscripcion.h gestor_inscripcion.cc
+
+test3 : test3.o gestor_inscripcion.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -o $@
 

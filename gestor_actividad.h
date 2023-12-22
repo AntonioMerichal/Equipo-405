@@ -46,7 +46,26 @@ public:
             exit(EXIT_FAILURE);
         }
     }
+            std::string obtenerFechaInicio(int id)
+                {
+                    for (const auto &actividad : lista_actividad_)
+                    {
+                        if (actividad.getId() == id)
+                        {
+                            return actividad.getFechaInicio();
+                        }
+                    }
 
+                    // Si no se encuentra la actividad con el ID proporcionado, puedes lanzar una excepción o devolver una cadena vacía según tus necesidades.
+                    std::cerr << "No se encontró ninguna actividad con el ID proporcionado." << std::endl;
+                    // Puedes lanzar una excepción aquí o devolver una cadena vacía según tus necesidades
+                    // throw std::runtime_error("No se encontró ninguna actividad con el ID proporcionado.");
+                    return "";
+                }
+    std::list<Actividad> getListaActividades() const
+    {
+        return lista_actividad_;
+    }
     ~GestorActividad()
     {
         cout << "Realizando backup de actividades..." << endl;
@@ -62,7 +81,19 @@ public:
         }
         fich.close();
     }
+    void mostrarActividades()
+        {
 
+        for (const auto &actividad : lista_actividad_)
+        {
+            // Convertir las cadenas a estructuras tm para cada fecha y poder compararlas
+                std::cout << "ID: " << actividad.getId() << ", NOMBRE: " << actividad.getNombreActividad()
+                          << ", DESCRIPCION: " << actividad.getDescripcion()
+                          << ", FECHA INICIO: " << actividad.getFechaInicio()
+                          << ", FECHA FINAL: " << actividad.getFechaFinal() << std::endl;
+            }
+        }
+        
     bool existeActividad(int id)
     {
         for (auto it = lista_actividad_.begin(); it != lista_actividad_.end(); it++)

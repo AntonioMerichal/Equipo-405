@@ -9,6 +9,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#pragma once
 
 using namespace std;
 
@@ -20,6 +21,7 @@ private:
     string fechaInscripcion_;
     string fechaInicioCurso_;
     estado_inscripcion estado_;
+    
 
 public:
     Inscripcion() {}
@@ -54,12 +56,10 @@ public:
         return fechaInicioCurso_;
     }
    
-   // Ejemplo de cómo podría ser el método getEstado() en la clase Inscripcion
-        estado_inscripcion Inscripcion::getEstado() const 
-        {
-            return estado_; // Asumiendo que estado_ es un miembro de tipo estado_inscripcion
-        }
-
+    estado_inscripcion getEstado() const
+    {
+        return estado_;
+    }
 
     // Métodos setter
     void setUsuario(const string &usuario)
@@ -99,4 +99,5 @@ public:
         estado_ = estado;
     }
 };
+
 #endif

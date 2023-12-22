@@ -1,16 +1,18 @@
-i22papaj,555,Pedro Martinez,DIRECTOR_ACADEMICO
-laura,789,Laura Garcia,ORGANIZADOR
-diego,321,Diego Hernandez,USUARIO
-clara,987,Clara Rodriguez,DIRECTOR_ACADEMICO
-julia,654,Julia Soto,USUARIO
-roberto,123,Roberto Vargas,ORGANIZADOR
-elena,876,Elena Ramirez,USUARIO
-sergio,234,Sergio Torres,DIRECTOR_ACADEMICO
-lucia,567,Lucia Mendoza,USUARIO
-carla,432,Carla Morales,ORGANIZADOR
-angel,1234,angel angel angel,USUARIO
-usuario492,1111prueba,Nombre de prueba,ORGANIZADOR
-usuario5017,1111prueba,Nombre de prueba,ORGANIZADOR
-usuario9077,1111prueba,Nombre de prueba,ORGANIZADOR
-usuario2336,1111prueba,Nombre de prueba,ORGANIZADOR
-usuario9047,1111prueba,Nombre de prueba,ORGANIZADOR
+i22papaj,555,Jose Ignacio Palomo Parejo,ORGANIZADOR
+i22mucua,789,Alfonso Munoz Cuesta,ORGANIZADOR
+i22megra,321,Antonio Merichal Granados,ORGANIZADOR
+i22macal,987,Luis Martinez,DIRECTOR_ACADEMICO
+i22ropea,654,Angel Rodriguez,USUARIO
+i22maloc,123,Carlos Madueño,USUARIO
+i22pepoj,876,Jose Luis Perez,USUARIO
+i22urvip,234,Pedro Urbano,USUARIO
+i22molua,111,Angela Moral Lucena,USUARIO
+i22logra,222,Manuel Lopez Granados,USUARIO
+i22grcan,333,Isabel Granados Cañero,USUARIO
+i22pelor,444,Jesus Perez Lorca,ORGANIZADOR
+i22bealm,555,Claudia Bello Almagro,USUARIO
+i22feroj,Mirella Fernandez Rojas,123,USUARIO
+usuario2768,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario6367,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario2507,1111prueba,Nombre de prueba,ORGANIZADOR
+usuario8944,1111prueba,Nombre de prueba,ORGANIZADOR

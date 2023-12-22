@@ -69,7 +69,27 @@ public:
             exit(EXIT_FAILURE);
         } 
     }
+    void modificarFechaInicioCurso(const std::string &usuario, int idCurso, const std::string &nuevaFechaInicio)
+    {
+        for (auto &inscripcion : lista_inscritos_)
+        {
+            if (inscripcion.getUsuario() == usuario && inscripcion.getId() == idCurso)
+            {
+                std::cout << "Modificando fecha de inicio del curso para el usuario " << usuario << " en el curso con ID " << idCurso << std::endl;
 
+                // Verifica si la fecha de inicio del curso puede ser modificada (según tu lógica de negocio)
+                // ...
+
+                // Modifica la fecha de inicio del curso
+                inscripcion.setFechaInicioCurso(nuevaFechaInicio);
+
+                std::cout << "Fecha de inicio del curso modificada con éxito." << std::endl;
+                return;
+            }
+        }
+
+        std::cout << "No se encontró ninguna inscripción para el usuario " << usuario << " en el curso con ID " << idCurso << std::endl;
+    }
     std::list<Inscripcion> getListaInscritos() const
     {
         return lista_inscritos_;
@@ -99,26 +119,63 @@ public:
     // If no matching idInscripcion is found, return a default value.
     return false; // Or true, depending on your desired default behavior.
 }
+void mostrarInscripciones() const
+    {
+        std::cout << "Inscripciones en la actividad:\n";
 
+        for (auto it = lista_inscritos_.begin(); it != lista_inscritos_.end(); ++it)
+        {
+            string rol;
+                        switch (it->getEstado()) {
+                            case estado_inscripcion::INSCRITO:
+                                rol = "INSCRITO";
+                                break;
+                            case estado_inscripcion::PREINSCRITO:
+                                rol = "PREINSCRITO";
+                                break;
+                        }
+            std::cout << "Usuario: " << it->getUsuario()
+                      << ", ID: " << it->getId()
+                      << ", Fecha de Inscripción: " << it->getFechaInscripcion()
+                      << ", Fecha de Inicio del Curso: " << it->getFechaInicioCurso()
+                      << ", Estado: " << rol << std::endl;
+        }
+    }
 ~inscripciones_actividad() {
         std::cout << "Realizando backup de inscritos..." << std::endl;
-
-        // Abrir el archivo para escritura
-        std::ofstream fich(nombreFichero_);
-        if (!fich.is_open()) {
-            std::cerr << "Error al abrir el archivo." << std::endl;
-            std::exit(EXIT_FAILURE);
-        }
-
+        std::cout << "Nombre del fichero: " << nombreFichero_ << std::endl;
+        ofstream fich(nombreFichero_);
         // Iterar sobre la lista de inscritos y escribir en el archivo
-        for (Inscripcion i : lista_inscritos_) {
-            fich << i.getUsuario() << "," << i.getId() << ","
-                 << i.getFechaInscripcion() << "," << i.getFechaInicioCurso()
-                 << "," << i.getEstado() << std::endl;
-        }
+            
+               for (auto it = lista_inscritos_.begin(); it != lista_inscritos_.end(); ++it) 
+               {
+                        string rol;
+                        switch (it->getEstado()) {
+                            case estado_inscripcion::INSCRITO:
+                                rol = "INSCRITO";
+                                break;
+                            case estado_inscripcion::PREINSCRITO:
+                                rol = "PREINSCRITO";
+                                break;
+                        }
+                        // Obtengo la fecha actual // fecha matriculacion
+                    std::time_t t = std::time(nullptr);
+                    std::tm *tm_info = std::localtime(&t);
+                    char buffer[80];
+                    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d", tm_info);
+                    std::string fechaActual(buffer);
 
-        fich.close();
-    }
+                    //obtener el usuario
+                   
+                fich << it->getUsuario() << "," << it->getId() << "," << fechaActual << ","
+                << it->getFechaInicioCurso() << "," << rol << "\n";
+               }
+                
+        
+    fich.close();
+}
+       
+
     bool darDeBajaUsuario(const std::string &nombreUsuario, const int idCurso)
     {
         for (auto it = lista_inscritos_.begin(); it != lista_inscritos_.end(); ++it)

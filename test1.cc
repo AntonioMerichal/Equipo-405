@@ -18,11 +18,10 @@ TEST(GestorUsuario, AltaUsuario)
 	EXPECT_FALSE(gestor.altaUsuario(u));
 	EXPECT_TRUE(gestor.existeUsuario(nombreRandom));
 }
-// Prueba para la función mostrarActividadesEntreFechas
-// TEST(GestorActividad, MostrarActividadesEntreFechas)
-// {
-//     // Configura tu objeto y las actividades según sea necesario
-//     GestorActividad gestor("actividades.txt");
-// 	srand(time(NULL));
-// 	string fecha="fecha" + to_string(rand()%1)
-// }
+
+TEST(GestorUsuarioTest, ExisteUsuario)
+{
+    GestorUsuario gestor("usuarios.txt"); 
+    EXPECT_TRUE(gestor.existeUsuario("i22megra"));
+    EXPECT_FALSE(gestor.existeUsuario("no existe"));
+}
